@@ -1,0 +1,84 @@
+<html>
+    <header>
+        <title>
+            User Registration
+        </title>
+    </header>
+
+    <body>
+        <h1>
+            New User Registration
+        </h1>
+
+        <div>
+            <form>
+
+                <table>
+                    <tr>
+                        <td>
+                            <label for="fName">First Name:</label>
+                        </td>
+                        <td>
+                            <input id="fName" type="text"><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="lName">Last Name:</label>
+                        </td>
+                        <td>
+                            <input id="lName" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email">Email:</label>
+                        </td>
+                        <td>
+                            <input id="email" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">Password:</label>
+                        </td>
+                        <td>
+                            <input id="password" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="gender">Gender:</label>
+                        </td>
+                        <td>
+                            <input name="gender" value="m" type="radio"/>Male
+                            <input name="gender" value="f" type="radio"/>Female
+                        </td>
+                    </tr>
+
+                </table>
+
+                <br>
+
+                <h2>Interest</h2>
+                <p>Please check all that apply</p>
+                
+                <table>
+                    <tr>
+                        <td><input name="interests[]" type="checkbox" value="mobile"> Mobile Games</td>
+                        <td><input name="interests[]" type="checkbox" value="pc">PC Games</td>
+                    </tr>
+                    <tr>
+                        <td><input name="interests[]" type="checkbox" value="ps">Play Station</td>
+                        <td><input name="interests[]" type="checkbox" value="xbox">X Box</td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <input type="submit" value="Submit">
+            </form>
+            
+        </div>
+    </body>
+</html>

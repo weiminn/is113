@@ -1,0 +1,55 @@
+<html>
+    <header>
+        <title>
+            Feedback
+        </title>
+    </header>
+    <body>
+        <h1>Customer Feedback Form</h1>
+        
+        <form action="http://is113.rf.gd/test.php" method="GET">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="title">Title:</label>
+                        </td>
+                        <td>
+                            <input name="title" placeholder="Title of Feedback">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="Name">Name:</label>
+                        </td>
+                        <td>
+                            <input name="Name" placeholder="Enter Your Name">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="color[]">Type:</label>
+                        </td>
+                        <td>
+                            <select name="color[]">
+                                <option value="complain">Complain</option>
+                                <option value="compliment">Compliment</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                
+                Feedback<br>
+                <textarea name="comment" rows="3"></textarea>   
+
+                <br><br>
+
+                <input type="button" value="reset">
+                <input type="submit" value="Submit">
+        </form>
+        
+        
+    </body>
+</html>
