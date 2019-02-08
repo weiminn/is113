@@ -23,11 +23,15 @@
     if ($num == '') {
         echo ($errno+1) . '. Why No Number?<br>';
         $errno++;
-        $ERR = TRUE;
+        $err = TRUE;
+    } elseif (!ctype_digit($num)){
+        echo ($errno+1) . '. Why Number Not INT?<br>';
+        $errno++;
+        $err = TRUE;
     }
 
     if(!$err){
-        $num = (int)$num;
+        
         echo '<table>';
         echo '<tr><th>S/N</th><th>Message</th></tr>';
 
