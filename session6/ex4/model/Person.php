@@ -15,6 +15,10 @@
         public function getName() {
             return $this->name;
         }
+
+        public function setName($n) {
+            return $this->name = $n;
+        }
         
         public function getPostCode() {
             return $this->postCode;

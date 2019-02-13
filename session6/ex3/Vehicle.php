@@ -9,5 +9,13 @@
             $this->plateNum = $plateNum;
             $this->type =  $type;
         }
+
+        public function getPlateNum(){
+            return $this->plateNum;
+        }
+
+        public function getType(){
+            return $this->type;
+        }
     }
 ?>

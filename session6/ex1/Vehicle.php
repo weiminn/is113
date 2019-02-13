@@ -2,7 +2,7 @@
     # Add code here
     class Vehicle{
         public function printInfo(){
-            echo "Hi, I'm driving a car!"
+            echo "Hi, I'm driving a car!";
         }
     }
 ?>
