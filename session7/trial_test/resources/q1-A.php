@@ -11,22 +11,26 @@
 
     echo '<ul>';
 
+    function is_divisible_by($n, $d){
+        return ($n%$d) == 0;
+    }
+
     echo "<li>$num1 is divisible by $div: ";
-    if($num1 % $div == 0){
+    if(is_divisible_by($num1, $div)){
         echo 'YES</li>';
     } else {
         echo 'NO</li>';
     }
 
     echo "<li>$num2 is divisible by $div: ";
-    if($num2 % $div == 0){
+    if(is_divisible_by($num2, $div)){
         echo 'YES</li>';
     } else {
         echo 'NO</li>';
     }
     
     echo "<li>$num3 is divisible by $div: ";
-    if($num3 % $div == 0){
+    if(is_divisible_by($num3, $div)){
         echo 'YES</li>';
     } else {
         echo 'NO</li>';
