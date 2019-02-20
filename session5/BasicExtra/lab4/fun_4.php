@@ -21,18 +21,20 @@
         $i = 0;
         $sub = '';
         while ($i < sizeof(str_split($string))){
-            if(substr($string, $i, 1) == substr($string, -$i-1, 1)){
-                $sub .= substr($string, $i, 1);
+            if($string[$i] == $string[strlen($string)-1-$i]){
+                $sub .= $string[$i];
                 $i += 1;
             } else {
                 break;
             }
         }
+        var_dump($i);
+        var_dump($sub);
 
-        if (sizeof(str_split($sub)) == 0) {
+        if (strlen($sub) == 0) {
             return "None";
         } else {
-            return substr($string, $i, 1-$i);
+            return substr($string, $i, strlen($string)- (2*$i));
         }
        
     }
