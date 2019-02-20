@@ -17,7 +17,23 @@
 
     function get_sandwich($string) {
 
-       // add your code here
+        // add your code here
+        $i = 0;
+        $sub = '';
+        while ($i < sizeof(str_split($string))){
+            if(substr($string, $i, 1) == substr($string, -$i-1, 1)){
+                $sub .= substr($string, $i, 1);
+                $i += 1;
+            } else {
+                break;
+            }
+        }
+
+        if (sizeof(str_split($sub)) == 0) {
+            return "None";
+        } else {
+            return substr($string, $i, 1-$i);
+        }
        
     }
 
