@@ -8,7 +8,12 @@ $price_info = [
 #Complete this function
 function compute_bill($cart, $pricing){
     # Write code here
+    $total = 0;
+    foreach($cart as $item => $qty){
+        $total += $pricing[$item] * $qty;
+    }
 
+    return $total;
     # End of code
 }
  
