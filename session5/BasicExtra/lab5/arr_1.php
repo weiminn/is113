@@ -12,7 +12,16 @@
     $numbers = [4,10,12,28,24,18,5,20,15,21,30,22,21,14,17,28,26,24,6,8,15];
     $min = 10;
     $max = 20;
-    
+    $arr = [];
     // add your code here
+    echo "Original Array: " . print_r($numbers) . "<br>";
+    echo "After the function is called: [";
+    foreach ($numbers as $num){
+        if ($num >= $min && $num <= $max){
+            $arr[] = $num; 
+            echo "$num ";   
+        }
+    }
+    echo "]";   
     
 ?>

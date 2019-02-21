@@ -11,8 +11,8 @@
 
     */
 
-    //$numbers = [4, 6, [1,2], 10, [-1,-3]];
-    $numbers = [4, 6, [1,2,3,4], 10, [-1,-3], [5,7,1,2]];
+    $numbers = [4, 6, [1,2], 10, [-1,-3]];
+    // $numbers = [4, 6, [1,2,3,4], 10, [-1,-3], [5,7,1,2]];
 
     echo "Count of numbers: " . count_numbers($numbers);
        
@@ -20,6 +20,19 @@
 
     function count_numbers($numbers) {
       // add your code here
+      $count = 0;
+
+      foreach($numbers as $num){
+        if (is_array($num)){
+          foreach($num as $n){
+            $count += 1;
+          }
+        } else {
+          $count += 1;
+        }
+      }
+
+      return $count;
     }
 
 ?>
