@@ -10,7 +10,36 @@
 
     function merge($list1,$list2){
         # Write code here
-        return [];
+        $_list = [];
+
+
+
+        // while (sizeof($list1) != 0 || sizeof($list2) != 0){
+            
+        //     if (sizeof($list1) != 0 && sizeof($list2) == 0){
+        //         while (sizeof($list1) != 0){
+        //             $_list[] = reset($list1);
+        //         array_splice($list1, 0, 1);
+        //         }
+        //     } elseif (sizeof($list1) == 0 && sizeof($list2) != 0){
+        //         while (sizeof($list2) != 0){
+        //             $_list[] = reset($list2);
+        //         array_splice($list2, 0, 1);
+        //         }
+        //     }
+
+        //     while (sizeof($list1) != 0 && sizeof($list2) != 0){
+        //         if (reset($list1) > reset($list2)){
+        //             $_list[] = reset($list2);
+        //             array_splice($list2, 0, 1);
+        //         } else {
+        //             $_list[] = reset($list1);
+        //             array_splice($list1, 0, 1);
+        //         }
+        //     }
+        // }
+        
+        return $_list;
         # End of code
     }
 ?>

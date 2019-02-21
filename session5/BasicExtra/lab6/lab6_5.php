@@ -18,7 +18,15 @@
             
             function get_binary($decimal){
                 # Write code here
-                return "";
+                if($decimal == 0){
+                    return '';
+                } else {
+                    if ($decimal%2 == 0){
+                        return get_binary(floor($decimal/2)) . '0';
+                    } else {
+                        return get_binary(floor($decimal/2)) . '1';
+                    }
+                }
                 # End of code
             }
         ?>
