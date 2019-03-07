@@ -6,16 +6,34 @@ Email:
 <html>
     <head>
         <title>q2</title>
+        <style>
+            table, th, tr, td {
+                border: 1px solid black;
+            }
+        </style>
     </head>
     <body>
         <h1>Compute Bus Fare</h1>
         
-        Distance (in km)	  
-        Age group	  
-        Time	  Peak  Non-Peak
-        NTUC card?	  
-        Compute Fare
-
-        
+        <form method="POST" action="q2_result.php">
+            <table>
+                <tr><td>Distance (in km)</td><td><input type="text" name="distance"></td></tr>
+                
+                <tr><td>Age group</td>
+                    <td>
+                        <select name="age_group">
+                            <option value="Children">Children</option>
+                            <option value="Adult">Adult</option>
+                            <option value="Senior">Senior</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr><td>Time</td><td><input type="radio" name="time" value="Peak">Peak  <input type="radio" name="time" value="Non-Peak">Non-Peak</td></tr>
+                
+                <tr><td>NTUC card?</td><td><input type="checkbox" name="ntuc[]"></td></tr>
+            </table>
+            <input type="submit" value="Compute Fare">
+        </form>
     </body>
 </html>
