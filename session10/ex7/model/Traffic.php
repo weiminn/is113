@@ -28,10 +28,20 @@
         // Return a predefined traffic status information
         // based on the location and conditionTable arguments
         private function computeTrafficStatus($location,$conditionTable) {
-
+            var_dump($location);
+            var_dump($conditionTable);
             ## Steps:
             // (1) Check if location matches one of the keyword in conditionTable
             // (2) If a match exists, return the corresponding condition
+            foreach($conditionTable as $loco => $condi){
+                // var_dump(strripos($location, $loco));
+                if(strripos($location, $loco) > -1){
+                    var_dump($loco);
+                    return $condi;
+                }
+            }
+
+            return "Unknown";
             // (3) Else, return "Unknown"
 
             ## Examples (consider that $conditionTable is $this->conditionTableEvening):

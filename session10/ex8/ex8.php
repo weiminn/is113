@@ -53,6 +53,22 @@
 // and the final bill after membership discount.
 // Use suitable methods defined in DeliveryOrder.php
 
+        spl_autoload_register(
+            function($class){
+                require_once "model/$class.php";
+            }
+        );
+
+        $_data = new DeliveryOrderDAO();
+        $data = $_data->getDeliveryOrders();
+        // var_dump($data);
+        foreach($data as $person){
+            $id = $person->getID();
+            $name = $person->getName();
+            $bill = $person->computeBill();
+            echo "<tr><td>$id</td><td>$name</td><td>$bill</td><tr>";
+        }
+
 
 ?>
 
