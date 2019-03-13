@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+           <title>Traffic Information</title>
+
+           <style>
+                body {
+                    background-image: url("./image/traffic.png");
+                }       
+            </style>
+    </head>
+
+    <body>
+        <h1>Traffic Information System</h1>
+        <form action="ex10.php">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name"> </td>
+                </tr>
+                <tr>
+                    <td>Starting Address: </td>
+                    <td><input type="text" name="origin" value="80 Stamford Rd, Singapore 178902" size="50"></td>
+                </tr>
+                <tr>
+                    <td>Destination Address: </td>
+                    <td><input type="text" name="destination" value="9 Woodlands Ave 9, Singapore 738964" size="50"></td>
+                </tr>
+            </table>        
+            <br/>    
+            <input type="submit" value="Get Estimated Travelling Time">
+        </form>
+
+    </body>
+
+</html>
