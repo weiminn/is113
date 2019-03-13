@@ -1,0 +1,48 @@
+<!-- 
+    DO NOT MODIFY THIS FILE!!!!
+-->
+
+<!-- Two samples of encrypted chuncks are provided below -->
+
+<!--
+chunk1:
+JAkaAApDWQpLCllPSVhPXgpHT1lZS01PBAp+QkNZCkNZCksKWU9JWE9eCkdPWVlLTU8ECn5CQ1kKQ1kKSwpZT0lYT14KR09ZWUtNTwQ=
+
+chunk2:
+UDUbGlkKQ1kKSwpZT0lYT14KR09ZWUtNTwQ=
+-->
+
+<!--
+chunk1:
+MQYMRygPQ01HSwppRU5PCl1LWQpeQk8KR0VZXgpJRUdaRk9SCklDWkJPWApZU1leT0cKRUwKXkJPCl5DR08ECmNeCl1LWQpET0tYRlMKTEVFRlpYRUVMBA==
+
+chunk2:
+RToBAk0mT1hHS0RZCllPRF4KR09ZWUtNT1kKXkUKTkNMTE9YT0ReCkdDRkNeS1hTCl9ETk9YCl5CTwpJRVxPWApFTApeQk8Kb0RDTUdLCmlFTk8E
+
+chunk3:
+RToBAk0gRkZDT04KTEVYSU9ZCkxPRl4KXkJPCkNHWktJXgpFTApeQk8KR09ZWUtNT1kKS1kKXkJPUwpZX0xMT1hPTgpLXl5LSUEKS0xeT1gKS15eS0lBBA==
+-->
+
+<!DOCTYPE html>
+<html>
+    <head><title>Crypto</title></head>
+<body>
+    <p>
+        Decrypting A Cipher!
+    </p>
+
+    <form action="q3.php">
+        Encrypted Chunks: <br/>
+        <textarea name="chunk1" rows="3" cols="70"></textarea><br/>
+        <textarea name="chunk2" rows="3" cols="70"></textarea><br/>
+        <textarea name="chunk3" rows="3" cols="70"></textarea><br/>
+        <textarea name="chunk4" rows="3" cols="70"></textarea><br/>
+
+        <br/>
+        Key: <input name="key" /><br/><br/>
+
+        <input type="submit" name="action" value="Decrypt"/>
+
+    </form>
+</body>
+</html>

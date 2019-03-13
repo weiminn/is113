@@ -1,0 +1,88 @@
+ <!--  
+    Name: Wei Minn
+    Email: wei.minn.2018@sis.smu.edu.sg
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ah Kong BoBa Tea</title>
+    
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 50%;
+        }
+        th,td {
+            border: 1px solid black;
+        }
+        h3{
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Insert your codes in the following -->
+
+    <h1>WELCOME TO AH KONG BOBA TEA</h1>
+
+    <form method="POST" action="q2.php">
+        <table>
+        <tr>
+            <th colspan="4"> <h2>BoBa Order Form</h2> </th>
+        </tr>
+        <tr>
+        <td colspan="4"><h3> Step 1: Select your Tea</h3></td>
+        </tr>
+        <tr>
+        
+        <td colspan="3"><STRONG> Tea Type</STRONG></td>
+        <th>Price</th>
+
+        </tr>
+        <tr>
+            
+            <td colspan="3" width="80%"><input type="radio" name="type" value="AhKong">Ah Kong Original Milk Tea</td>
+            <td width="22%">$3.50</td>
+            
+        </tr>
+        <tr>
+            
+            <td colspan="3"><input type="radio" name="type" value="BrownSugar">Brown Sugar Green Tea Macchiato</td>
+            <td>$3.80</td>
+            
+        </tr>
+        <tr>
+            
+            <td colspan="3"><input type="radio" name="type" value="EarlGrey"> Earl Grey Milk Tea</td>
+            <td>$3.00</td>
+        
+        </tr>
+        <tr>
+            
+            <td colspan="3"><input type="radio" name="type" value="Rainbow">Rainbow Milk Tea</td>
+            <td>$4.00</td>
+            
+        </tr>
+        <tr>
+        <td colspan="4"><h3>Step 2: Select Your Topping (Optional) </h3> <small>(Each Topping + additional 50ct)</small></td>
+        </tr>
+        <tr>
+            <td width="25%"><input type="checkbox" name="topping[]" value="Pearl">Pearl</td>
+            <td width="25%"><input type="checkbox" name="topping[]" value="Herbal Jelly">Herbal Jelly</td>
+            <td width="25%"><input type="checkbox" name="topping[]" value="Nata de Coco">Nata de Coco</td>
+            <td width="25%"><input type="checkbox" name="topping[]" value="Aloe Vera">Aloe Vera</td>
+
+        </tr>
+       
+        </table>
+        <br>
+
+        <input type="reset" name="Reset"><input type="submit" name="submit">
+    </form>
+</body>
+
+</html>
