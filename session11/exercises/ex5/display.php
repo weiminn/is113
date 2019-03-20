@@ -20,6 +20,12 @@
 
         <?php
             //Add code here
+            $dao = new CourseDAO();
+            $courses = $dao->retrieveAll();
+
+            foreach($courses as $c){
+                echo "<tr><td>". $c->getTitle()."</td><td>". $c->getSection() ."</td><td>". $c->getInstructor() ."</td></tr>";
+            }
         ?>
 
     </table>

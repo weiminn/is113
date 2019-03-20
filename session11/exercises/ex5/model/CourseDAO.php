@@ -29,9 +29,13 @@ class CourseDAO {
         $sql = 'insert into course (title, section, instructor) values (:title, :section, :instructor)';
         $stmt = $conn->prepare($sql); 
 
-        $stmt->bindParam(':title', $course->title, PDO::PARAM_STR);
-        $stmt->bindParam(':section', $course->section, PDO::PARAM_STR);
-        $stmt->bindParam(':instructor', $course->instructor, PDO::PARAM_STR);
+        $title = $course->getTitle();
+        $section = $course->getSection();
+        $instructor = $course->getInstructor();
+
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':section', $section, PDO::PARAM_STR);
+        $stmt->bindParam(':instructor', $instructor, PDO::PARAM_STR);
         
         $isAddOK = $stmt->execute();
 
