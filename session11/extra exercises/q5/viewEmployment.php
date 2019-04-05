@@ -16,10 +16,21 @@
     $employment_stats = [];
     
     // add code here to retrieve the employment statistics of a university given by the user
+    if(isset($_POST['university'])){
+        if(!empty($_POST['university'])){
+            $university = $_POST['university'];
+            $employment_stats = $dao->searchByUniversity($university);    
+        } else {
+            // by default (when the page loads the first time or on reset), retrive all the statistics
+            $employment_stats = $dao->retrieveAll();
+        }
+        
+    } else {
+        // by default (when the page loads the first time or on reset), retrive all the statistics
+        $employment_stats = $dao->retrieveAll();
+    }
     
     
-    // by default (when the page loads the first time or on reset), retrive all the statistics
-    $employment_stats = $dao->retrieveAll();
     
 ?>
 

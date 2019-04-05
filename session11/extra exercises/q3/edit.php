@@ -29,11 +29,23 @@ if( isset($_GET['id']) ) {
             // Reference: https://www.w3schools.com/tags/att_input_type_hidden.asp
 
             // Display Name
+            echo 'Name: ';
+            echo $star_object->getName();
+            echo '<br>';
 
             // Display Gender
+            echo 'Gender: ';
+            echo $star_object->getGender();
+            echo '<br> ';
 
             // Display Headline as a Text INPUT field
             // The Text INPUT field value must correctly show the current Headline
+            echo 'Headline: ';
+            $head = $star_object->getHeadline();
+            echo "<input type='text' name='headline' value='$head'>";
+            echo '<br>';
+
+            echo "<input hidden type='text' name='id' value='$id'>";
 
             // SUBMIT button - Clicking on this will submit to 'update.php' via HTTP POST
             // DO NOT MODIFY THE BELOW FOUR (4) LINES OF CODE
