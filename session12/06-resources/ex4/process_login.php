@@ -34,9 +34,11 @@
     # Failed login
     if (!$success){
         # Add "error" => "Failed Login" key-value pair to the session
+        $_SESSION['error'] = "Failed Login";
         
         # Redirect to login.php, while passing username information 
         # through the URL (Method 2)
-         
+        header("Location: Login.php");
+        exit;         
     }
 ?>

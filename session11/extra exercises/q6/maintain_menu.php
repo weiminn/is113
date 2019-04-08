@@ -59,30 +59,37 @@
 
         // Display table of the list of food items 
         // SKU, Description, Category, Price
+        echo '<table>';
+        echo '<tr><th>SKU</th><th>Description</th><th>Category</th><th>Price</th><th></th><th></th>';
         
+        foreach($food as $f){
+            echo "<tr><td>{$f->getSKU()}</td><td>{$f->getFoodDesc()}</td><td>{$f->getcategory()}</td><td>{$f->getPrice()}</td><td><a href='edit.php?id={$f->getSKU()}'>Edit</a></td><td><a href='delete.php?id={$f->getSKU()}'>Delete</a></td>";
+        }
         
+        echo '</table>';
         ?>
 
 
         <!-- complete the codes to allow user to add in items -->
-        
-        <h3> Add New Food Item </h3>
-        <table>
-            <tr>
-                <td> SKU :</td> <td>  </td> 
-            </tr>
-            <tr>
-                <td> Description : </td> <td> </td> 
-            </tr>
-            <tr>
-                <td> Category : </td> <td>  </td>
-            </tr>    
-            <tr>
-                <td> Price : </td> <td> </td>
-            </tr>
-        </table>
+        <form action="POST" method="POST">
+            <h3> Add New Food Item </h3>
+            <table>
+                <tr>
+                    <td> SKU :</td> <td><input name="sku" type="text"></td> 
+                </tr>
+                <tr>
+                    <td> Description : </td> <td><input name="fooddesc" type="text"></td> 
+                </tr>
+                <tr>
+                    <td> Category : </td> <td><input name="category" type="text"></td>
+                </tr>    
+                <tr>
+                    <td> Price : </td> <td><input name="price" type="text"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Add Item"/> </br> </br>
+        </form>
     </br>  
-    <input type="submit" value="Add Item"/> </br> </br>
 
     <?= $msg ?>
     </form>

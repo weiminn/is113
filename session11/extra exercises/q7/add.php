@@ -3,6 +3,21 @@
 require_once 'common.php';
 
 $status = False;
+$id = '';
+// How do you retrieve 'id' passed to edit.php?
+// GET? POST?
+$dao = new PostDAO();
+$post = null;
+
+if (isset($_POST['subject']) && isset($_POST['entry']) && isset($_POST['mood'])) {
+    $subject = $_POST['subject'];
+    $entry = $_POST['entry'];
+    $mood = $_POST['mood'];
+
+    $dao = new PostDAO();
+    $status = $dao->add($subject, $entry, $mood);
+
+}
 
 ?>
 <html>

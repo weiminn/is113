@@ -38,7 +38,11 @@
             $qstm->bindParam(':age', $age, PDO::PARAM_INT);
             
             // var_dump($qstm);
-            $x = $qstm->execute();
+            $ok = $qstm->execute();
+            if($ok){
+                header("location: display.php");
+                exit;
+            }
 
             $stmt = null;
             $pdo = null;

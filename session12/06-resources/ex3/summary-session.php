@@ -1,10 +1,10 @@
 <?php
     # Start a session
-    
+    session_start();
     # Echo name and age information
-    echo "Name: ";
+    echo "Name: ". $_SESSION['name'];
     echo "<br/>";
-    echo "Age: ";
+    echo "Age: " . $_SESSION['age'];
     echo "<br/>";
     
     echo "Hobby: " . $_POST["hobby"];

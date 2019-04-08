@@ -14,6 +14,30 @@ $accounts = [
 $errors = [];
 $email = '';
 
+$errors = []; // It will store one or more Authentication Error messages
+$login = false;
+$email = '';
+$password = '';
+
+// YOUR CODE GOES HERE
+// FORM PROCESSING
+// AUTHENTICATE email and password. Check against $accounts.
+$_SESSION['errors'] = [];
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $login = true;
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    if(array_key_exists($email, $accounts)) {
+        if($accounts[$email] === $password) {
+
+        } else {
+            $_SESSION['errors'][] = 'Password is incorrect!';
+        }
+    } else {
+        $_SESSION['errors'][] = 'Email is not registered with us!';
+    }
+}
 
 // YOUR CODE GOES HERE
 // 1) COPY YOUR CODE from q3/NoSession/process_login.php
@@ -25,7 +49,7 @@ $email = '';
 //    b) Set a new Session Variable $_SESSION['errors'] whose value will be $errors
 //    c) Forward to login.php
 //          login.php will then retrieve the value of Session Variable $_SESSION['errors'] and display
-//
+
 // Else (user login succeeds):
 //    Go ahead and proceed with the below HTML (display sensitive data...)
 
@@ -37,15 +61,21 @@ $email = '';
     <?php
 
         // FEEL FREE TO WRITE MORE CODE HERE (IF NEEDED)
-
-        echo "
-            <h1>Hello, $email and welcome back!</h1>
-            <h1>Sensitive data...</h1>
-        ";
-
-        echo "
-            <h1>Attempting to access sensitive data without logging in? NO!</h1>
-        ";
+        if($login){
+             if (empty($_SESSION['errors'])){
+                echo "
+                    <h1>Hello, $email and welcome back!</h1>
+                    <h1>Sensitive data...</h1>
+                ";
+             } else {
+                 header("Location: login.php");
+             }
+            
+        } else {
+            echo "
+                <h1>Attempting to access sensitive data without logging in? NO!</h1>
+            ";
+        }
     ?>
 
 </body>

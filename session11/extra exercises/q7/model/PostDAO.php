@@ -51,18 +51,30 @@ class PostDAO {
         $conn = $connMgr->connect();        // PDO object
 
         // STEP 2
-        $sql = ""; // INCOMPLETE
+        $sql = "SELECT * FROM post WHERE id = :id"; // INCOMPLETE
         $stmt = $conn->prepare($sql);       // SQLStatement object
 
         // STEP 3
         // How do I run my query using $stmt?
+        $stmt->bindParam(":id", $id, PDO::PARAM_STR);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
 
         // STEP 4
         $post_object = null;  // If a match is found, return a Post object
 
         // How to retrieve query results?
         // ???
+        if( $row = $stmt->fetch() ) {
+            $post_object =
+                new Post(
+                    $row['id'],
+                    $row['create_timestamp'],
+                    $row['update_timestamp'],
+                    $row['subject'],
+                    $row['entry'],
+                    $row['mood']);
+        }
 
         // STEP 5
         $stmt = null;
@@ -74,75 +86,86 @@ class PostDAO {
 
     public function update($id, $subject, $entry, $mood) {
 
-        // STEP 1
-        // Connect to Database
+        $connMgr = new ConnectionManager(); // ConnectionManager object
+        $conn = $connMgr->connect();        // PDO object
 
         // STEP 2
-        // Prepare SQL
-        $sql = ""; // INCOMPLETE
-        
+        $sql = "UPDATE post 
+            SET entry = :entry, subject = :subject, mood = :mood, update_timestamp = :u_stamp      
+            WHERE id = :id"; // INCOMPLETE
+        $stmt = $conn->prepare($sql);       // SQLStatement object
 
-        //STEP 3
-        // Run Query
-        $status = False;
+        // STEP 3
+        // How do I run my query using $stmt?
+        $stamp = new DateTime();
+        $stamp = $stamp->format('Y-m-d H:i:s');
+        $stmt->bindParam(":id", $id, PDO::PARAM_STR);
+        $stmt->bindParam(":entry", $entry, PDO::PARAM_STR);
+        $stmt->bindParam(":subject", $subject, PDO::PARAM_STR);
+        $stmt->bindParam(":mood", $mood, PDO::PARAM_STR);
+        $stmt->bindParam(":u_stamp", $stamp, PDO::PARAM_STR);
 
 
-        // STEP 4
-        // Close Query/Connection
+        $status = $stmt->execute();
+
+        // STEP 5
         $stmt = null;
         $conn = null;
 
-
-        // STEP 5
-        return $status; // Boolean True or False
+        // STEP 6
+        return $status;
     }
 
     public function delete($id) {
-        // STEP 1
-        // Connect to Database
+
+        $connMgr = new ConnectionManager(); // ConnectionManager object
+        $conn = $connMgr->connect();        // PDO object
 
         // STEP 2
-        // Prepare SQL
-        $sql = ""; // INCOMPLETE
-        
+        $sql = "DELETE FROM post WHERE id = :id"; // INCOMPLETE
+        $stmt = $conn->prepare($sql);       // SQLStatement object
 
-        //STEP 3
-        // Run Query
-        $status = False;
+        // STEP 3
+        // How do I run my query using $stmt?
+        $stmt->bindParam(":id", $id, PDO::PARAM_STR);
+        $status = $stmt->execute();
 
-
-        // STEP 4
-        // Close Query/Connection
+        // STEP 5
         $stmt = null;
         $conn = null;
 
-        
-        // STEP 5
-        return $status; // Boolean True or False
+        // STEP 6
+        return $status;
     }
 
     public function add($subject, $entry, $mood) {
-        // STEP 1
-        // Connect to Database
+
+        $connMgr = new ConnectionManager(); // ConnectionManager object
+        $conn = $connMgr->connect();        // PDO object
 
         // STEP 2
-        // Prepare SQL
-        $sql = ""; // INCOMPLETE
-        
+        $sql = "INSERT INTO post (subject, entry, mood, create_timestamp, update_timestamp) 
+                VALUES (:subject, :entry, :mood, :c_stamp, :u_stamp)"; // INCOMPLETE
+        $stmt = $conn->prepare($sql);       // SQLStatement object
 
-        //STEP 3
-        // Run Query
-        $status = False;
+        // STEP 3
+        // How do I run my query using $stmt?
+        $stamp = new DateTime();
+        $stamp = $stamp->format('Y-m-d H:i:s');
+        $stmt->bindParam(":entry", $entry, PDO::PARAM_STR);
+        $stmt->bindParam(":subject", $subject, PDO::PARAM_STR);
+        $stmt->bindParam(":mood", $mood, PDO::PARAM_STR);
+        $stmt->bindParam(":u_stamp", $stamp, PDO::PARAM_STR);
+        $stmt->bindParam(":c_stamp", $stamp, PDO::PARAM_STR);
 
+        $status = $stmt->execute();
 
-        // STEP 4
-        // Close Query/Connection
+        // STEP 5
         $stmt = null;
         $conn = null;
 
-        
-        // STEP 5
-        return $status; // Boolean True or False
+        // STEP 6
+        return $status;
     }
 }
 

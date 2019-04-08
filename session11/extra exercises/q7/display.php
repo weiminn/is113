@@ -4,6 +4,8 @@ require_once 'common.php';
 
 // YOUR CODE GOES HERE
 // PostDAO object?
+$dao = new PostDAO();
+$posts = $dao->getAll();
 
 ?>
 <html>
@@ -25,6 +27,19 @@ require_once 'common.php';
                 </tr>
         ";
 
+        foreach($posts as $post){
+            echo "
+            <tr>
+            <td>{$post->getID()}</td>
+            <td>{$post->getCreateTimeStamp()}</td>
+            <td>{$post->getUpdateTimestamp()}</td>
+            <td>{$post->getSubject()}</td>
+            <td><a href='edit.php?id={$post->getID()}'>Edit</a></td>
+            <td><a href='delete.php?id={$post->getID()}'>Delete</a></td>
+            </tr>
+        ";
+
+        }
 
         
 

@@ -2,12 +2,19 @@
 
 require_once 'common.php';
 
+$dao = new FoodDAO();
 $id = '';
+$food_object = null;
 if( isset($_GET['id']) ) {
     $sku = $_GET['id'];
-// Complete your codes here
-
-
+    // Complete your codes here
+    if(isset($_POST['action'])){
+        if ($_POST['action'] === "Update Info"){
+            $result = $dao->UpdateFood($_POST['sku'], $_POST['fooddesc'], $_POST['category'], $_POST['price']);
+            unset($_POST['action']);
+        }
+    }
+    $food_object = $dao->getFoodbyID($sku);
 }
 
 
@@ -39,23 +46,23 @@ if( isset($_GET['id']) ) {
             echo "
                 <table>
                 <tr>
-                    <td> SKU : </td> <td> $sku </td>
+                    <td> SKU : </td> <td><input name='sku' value='$sku'> </td>
                 </tr>
                 <tr>
-                    <td> Description : </td> <td>  </td>
+                    <td> Description : </td> <td><input name='fooddesc' value='{$food_object->getFoodDesc()}'></td>
                 </tr>
                 <tr>
-                    <td> Category: </td> <td> </td>
+                    <td> Category: </td> <td><input name='category' value='{$food_object->getcategory()}'></td>
                 </tr>
                 <tr>
-                    <td> Price : </td> <td>  </td>
+                    <td> Price : </td> <td><input name='price' value='{$food_object->getPrice()}'></td>
                 </tr>
                 </table>";
 
 
             echo "
                 <br>
-                <input type='submit' value='Update Info'>
+                <input type='submit' name='action' value='Update Info'>
             ";
         }
 

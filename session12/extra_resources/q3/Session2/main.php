@@ -9,7 +9,15 @@ $email = '';
 // YOUR CODE GOES HERE
 // Check if a user is logged in (authentication successful)
 // Wait... process_login.php did the authentication and set a Session Variable for me to use.
-//     $_SESSION['loggedInEmail']
+$auth = false;
+if(isset($_SESSION['loggedInEmail'])){
+    if($_SESSION['loggedInEmail']){
+        $email = $_SESSION['email'];
+        $auth = true;
+    }
+} else {
+    header("Location: login.php");
+}
 //
 // If this Session Variable does NOT exist, it means:
 //     - You may be attempting to access main.php directly (key in the URL in web browser address bar)
@@ -22,13 +30,19 @@ $email = '';
 <html>
 <body>
 
-    <h1>Hello, <?= $email ?> and welcome back!</h1>
+    <?
+        if($auth){
+            echo "<h1>Hello, <?= $email ?> and welcome back!</h1>
 
-    <h1>Sensitive data below...</h1>
+            <h1>Sensitive data below...</h1>
+    
+            <h1>
+                <a href='logout.php'>Log Out</a>
+            </h1>";
+        }
+    ?>
 
-    <h1>
-        <a href='logout.php'>Log Out</a>
-    </h1>
+    
 
 </body>
 </html>

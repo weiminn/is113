@@ -1,5 +1,5 @@
 <?php 
-    # Start a session
+    session_start();
     
 ?>
 <!DOCTYPE html>
@@ -20,10 +20,12 @@
         </form>
         <?php
             # Check if "error" key exists in the session
-           
-                # Display the errror message
-                
-                # Remove the key "error" from the session
+            if (isset($_SESSION['error'])) {
+                # code...
+                $error = $_SESSION['error'];
+                echo "<p style='color: red'>$error</p>"; 
+                unset($_SESSION['error']);
+            }
                 
         ?>
     </body>
