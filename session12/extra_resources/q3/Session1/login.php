@@ -16,31 +16,7 @@ session_start();
 // After you retrieve $_SESSION['errors], you need to UNSET this Session Variable.
 //    unset($_SESSION['errors']);
 // Do you know why we clear this?
-$errors = []; // It will store one or more Authentication Error messages
-$login = false;
-$email = '';
-$password = '';
 
-// YOUR CODE GOES HERE
-// FORM PROCESSING
-// AUTHENTICATE email and password. Check against $accounts.
-
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    $login = true;
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    # code...
-    
-    if(array_key_exists($email, $accounts)) {
-        if($accounts[$email] === $password) {
-
-        } else {
-            $errors[] = 'Password is incorrect!';
-        }
-    } else {
-        $errors[] = 'Email is not registered with us!';
-    }
-}
 
 ?>
 <!doctype html>

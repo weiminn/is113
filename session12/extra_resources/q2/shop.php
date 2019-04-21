@@ -45,32 +45,6 @@
     ############## PART A ########################################
     // add code here to retrieve an array of item objects
     // stored in the session and display the results in a table
-
-    if(!empty($_SESSION["cart"])){
-        echo "<table>
-            <tr> 
-                <th>Name</th> 
-                <th>Price (S$)</th> 
-                <th>Quantity</th> 
-            </tr>
-            <?php";
-        $total = 0;
-        foreach($_SESSION['cart'] as $item){
-            echo "<tr>";
-            echo "<td>" . $item->getName() . "</td>";
-            echo "<td>" . $item->getPrice() . "</td>";
-            echo "<td>" . $item->getQuantity() . "</td>";
-            echo "</tr>";
-            $total += $item->getPrice() * $item->getQuantity();
-        }
-        
-        echo "<tr>";
-        echo "<td colspan = '2'>Total Price</td>";
-
-        echo "<td>" . $total . "</td>";
-        echo "</tr>";
-
-        echo "</table>";
-            
-    }
-?>  
+    
+?>
+  

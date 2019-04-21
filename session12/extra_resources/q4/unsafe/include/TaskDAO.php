@@ -13,19 +13,17 @@ class TaskDAO {
 
 
         // Step 2 - Write & Prepare SQL Query (take care of Param Binding if necessary)
-        $sql = "SELECT * FROM task WHERE account_id=:account_id";
+        $sql = "";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':account_id', $account_id, PDO::PARAM_STR);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->execute();
+
 
         // Step 3 - Execute SQL Query
         $tasks = [];
         
+
         // Step 4 - Retrieve Query Results (if any)
-        while($row = $stmt->fetch()){
-            $tasks[] = new Task($row['id'], $row['account_id'], $row['description']);
-        }
+
 
         // Step 5 - Clear Resources $stmt, $pdo
         $stmt = null;

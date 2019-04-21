@@ -13,7 +13,6 @@ session_start();
 // clear all session variables
 // same as doing $_SESSION = array();
 // YOUR CODE GOES HERE
-$_SESSION = [];
 
 
 // Your session is still alive
@@ -23,11 +22,9 @@ $_SESSION = [];
 // destorys the whole session
 // opposite of session_start();
 // YOUR CODE GOES HERE
-session_destroy();
 
 
 // forward the user back to login.php
 // YOUR CODE GOES HERE
-header('Location: login.php');
 
 ?>

@@ -17,34 +17,14 @@
         
         ############## PART B ########################################
          // add code to add new items into current shopping cart in session
-        foreach($_GET as $phone => $qty){
-            if(is_numeric($_GET[$phone])){
-                foreach($_SESSION['cart'] as $item){
-
-                    $exists = false;
-
-                    if ($item->getName() === $phone){
-                        $item->setQuantity($_GET[$phone] + $item->getQuantity());
-                        $exists = true;
-                        break;
-                    }
-                }
-                    
-                if(!$exists){
-                    $item = new Item($phone, $dao->get($phone)->getPrice());
-                    $item->setQuantity($_GET[$phone]);
-                    $_SESSION["cart"][] = $item;
-                }
-            }
-        }
        
+        $_SESSION["cart"] = $items; 
         
     }
 
     function clearCart() {
         ############## PART C ########################################
         // add code to clear shopping cart here
-        $_SESSION["cart"] = [];
      
     }
 
